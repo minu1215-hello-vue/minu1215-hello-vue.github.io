@@ -1,13 +1,14 @@
 <script setup>
-import category from "@/assets/category.json"
+import { ref } from 'vue'
+import advice from "@/advice/advice.json"
 
-const categories = category
+const advices = ref(advice)
 
 </script>
 <template>
- <div v-for="item in categories">
-  name : {{ item.name }} <br> 
-  url : <a v-bind:href=item.image_url>{{ item.image_url }}</a> <br> 
-  code : {{ item.code }} <hr>
+ <div v-for="advice in advices">
+  name : {{ advice.author }} <br>
+  profile : {{ advice.authorProfile }} <br>
+  message : {{ advice.message }} <hr>
  </div>
 </template>
