@@ -1,12 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onUpdated, onMounted, onBeforeUpdate } from 'vue'
+const count = ref(0)
+onUpdated(() => {
+ console.log('onUpdated = ' + document.getElementById('count').textContent)
+})
+onMounted(() => {
+ console.log('onMounted = ' + document.getElementById('count').textContent)
+})
+onBeforeUpdate(() => {
+ console.log('onBeforeUpdate = ' + document.getElementById('count').textContent)
+})
 
-const message = ref('')
 </script>
 
 <template>
- <span>Multiline message is:</span>
-<!-- <p>{{ message }}</p> -->
- <p style="white-space: pre;">{{ message }}</p>
- <textarea v-model="message" placeholder="add multiple lines"></textarea>
+ <button id="count" @click="count++">{{ `➡️${count}⬅️` }}</button>
 </template>
