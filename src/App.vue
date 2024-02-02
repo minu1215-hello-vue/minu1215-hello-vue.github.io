@@ -9,21 +9,15 @@ function renderingList() {
 }
 
 function addList() {
- if(list.value.length) {
-  list.value.push(Math.max.apply(null, list.value) + 1)
- } else {
-  list.value.push(1)
- }
+  list.value.push(list.value.length + 1)
 }
 
 function deleteList() {
- if(list.value.length) {
-  list.value.pop()
- }
+ list.value.pop()
 }
 
 function reverseList() {
- list.value = list.value.reverse()
+ list.value.reverse()
 }
 
 </script>
